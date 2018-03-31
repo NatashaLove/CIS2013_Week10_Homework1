@@ -6,8 +6,13 @@ typedef int* IntArrayPtr;
 int main( )
  {
  int d1, d2;
- cout << "Enter the row and column dimensions of the array:\n";
- cin >> d1 >> d2;
+ cout << "Enter the board size :\n";
+ cout<< "x =";
+ cin >> d1;
+cout << endl;
+cout << "y =";
+cin >> d2;
+cout<< endl;
 
  IntArrayPtr *m = new IntArrayPtr[d1];
  int i, j;
