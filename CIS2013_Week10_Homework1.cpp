@@ -25,7 +25,19 @@ int main( )
 	for (i = 0; i < x; i++)
 	m[i] = new int[y];
  //m is now a x by y array.
-
+ 
+ cout<< m << endl; // array m address - test
+ cout<< *m << endl; // test - address of the 1st 
+ cout << m[0]<< endl; // test - address of [i]
+ 
+ cout << "Enter amount of mines for your field: "<< endl;
+	cin>> mine;
+	cout<<endl;
+	
+// point at the array's address : 
+	
+	//int *ap;
+	//ap= &m [0];
  
  // Print empty field
 	
@@ -38,9 +50,7 @@ int main( )
 	
 //	print(display_field);
 	
-	cout << "Enter amount of mines for your field: "<< endl;
-	cin>> mine;
-	cout<<endl;
+	
  
  for (i = 0; i < x; i++)
  delete[] m[i];
