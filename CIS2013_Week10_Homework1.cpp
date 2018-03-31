@@ -9,7 +9,7 @@ typedef int* IntArrayPtr;
 int main( )
  {
  int x, y;
- int display_field [x][y];
+ int board [x][y];
  int mine=0;
  
 	cout << "Enter the board size :\n";
