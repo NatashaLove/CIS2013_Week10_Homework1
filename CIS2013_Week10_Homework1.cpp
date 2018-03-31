@@ -26,11 +26,15 @@ int main( )
 	m[i] = new int[y];
  //m is now a x by y array.
  
+ 
+ // Ниже просто тесты - посотреть, что происходит:
  cout<< m << endl; // array m address - test
  cout<< *m << endl; // test - address of the 1st 
  cout << m[0]<< endl; // test - address of [i]
  
- cout << "Enter amount of mines for your field: "<< endl;
+ 
+ 
+ cout << "Enter amount of mines (not more than 10)for your field: "<< endl;
 	cin>> mine;
 	cout<<endl;
 	
@@ -38,6 +42,7 @@ int main( )
 	
 	//int *ap;
 	//ap= &m [0];
+ 
  
  // Print empty field
 	
@@ -50,7 +55,25 @@ int main( )
 	
 //	print(display_field);
 	
+	// Попытка напечатать игровое поле:
 	
+	
+	 for (int i=0; i<x; i++) {
+
+	  cout << i << " ";}
+	  cout<< endl;
+	  
+	 for (int a=0; a<x; a++) {
+
+	cout << a << " ";
+
+		for(int b=0; b<y; b++) {
+		
+		cout << board[a][b] << " "<< endl;
+			
+		}
+	cout << endl;
+	}
  
  for (i = 0; i < x; i++)
  delete[] m[i];
@@ -60,7 +83,24 @@ int main( )
  }
 
  
- 
+ void print(char board[x][y])
+{
+	cout << ' ' << "  ";
+	for (int i = 0; i < x;i++)
+	{
+		cout << i << ' ';
+	}
+	cout << '\n';
+	for (int i = 0; i < x; i++)
+	{
+		cout << i << "  ";
+		for (int j = 0;j < y;j++)
+		{
+			cout << board[i][j] << ' ';
+		}
+		cout << '\n';
+	}
+}
  
 /*void print (int m [][100]) {
 	int x, y;
