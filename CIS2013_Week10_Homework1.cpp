@@ -1,7 +1,11 @@
 #include <iostream>
 using namespace std;
 
-typedef int* IntArrayPtr;
+//typedef int* IntArrayPtr;
+
+typedef unsigned char* ByteArray;
+
+void print(unsigned char** board, int x, int y);
 
 //void print (int m [][100]);
 
@@ -9,7 +13,7 @@ typedef int* IntArrayPtr;
 int main( )
  {
  int x, y;
- int board [x][y];
+// int board [x][y];
  int mine=0;
  
 	cout << "Enter the board size :\n";
@@ -20,81 +24,61 @@ int main( )
 	cin >> y;
 	cout<< endl;
 
-	IntArrayPtr *m = new IntArrayPtr[x];
-	int i, j;
-	for (i = 0; i < x; i++)
-	m[i] = new int[y];
- //m is now a x by y array.
+	ByteArray *m = new ByteArray[y];
+
+	for (int i = 0; i < y; i++)
+		m[i] = new unsigned char[x];
+	//m is now a y by x array. x - width, y - height
  
  
  // Ниже просто тесты - посотреть, что происходит:
- cout<< m << endl; // array m address - test
+ /*cout<< m << endl; // array m address - test
  cout<< *m << endl; // test - address of the 1st 
  cout << m[0]<< endl; // test - address of [i]
- 
- 
- 
- cout << "Enter amount of mines (not more than 10)for your field: "<< endl;
-	cin>> mine;
-	cout<<endl;
-	
-// point at the array's address : 
-	
-	//int *ap;
-	//ap= &m [0];
- 
- 
- // Print empty field
-	
-	// for(int a=0; a<x; a++) {
-	// for(int b=0; b<y; b++) {
-		// display_field[a][b] = '.';
-	// }
-	
-// }
-	
-//	print(display_field);
-	
-	// Попытка напечатать игровое поле:
-	
-	
-	 for (int i=0; i<x; i++) {
+ cout << *m [1] << endl; // test - value?
+ */
 
-	  cout << i << " ";}
-	  cout<< endl;
-	  
-	 for (int a=0; a<x; a++) {
 
-	cout << a << " ";
-
-		for(int b=0; b<y; b++) {
-		
-		cout << board[a][b] << " "<< endl;
-			
+	for (int i = 0; i < y; i++)
+	{
+		for (int j = 0;j < x; j++)
+		{
+			m[i][j] = '.';
 		}
-	cout << endl;
 	}
- 
- for (i = 0; i < x; i++)
- delete[] m[i];
- delete[] m;
 
- return 0;
- }
+	cout << "Enter amount of mines (not more than 10)for your field: " << endl;
+	cin >> mine;
+	cout << endl;
 
+
+
+	// Попытка напечатать игровое поле:
+
+	print(m, x, y);
+
+	for (int i = 0; i < y; i++)
+		delete[] m[i];
+	delete[] m;
+
+
+	return 0;
+}
  
- void print(char board[x][y])
+ 
+ void print(unsigned char** board, int x, int y)
 {
-	cout << ' ' << "  ";
+
+	cout << '\t';
 	for (int i = 0; i < x;i++)
 	{
 		cout << i << ' ';
 	}
 	cout << '\n';
-	for (int i = 0; i < x; i++)
+	for (int i = 0; i < y; i++)
 	{
-		cout << i << "  ";
-		for (int j = 0;j < y;j++)
+		cout << i << '\t';
+		for (int j = 0; j < x;j++)
 		{
 			cout << board[i][j] << ' ';
 		}
@@ -102,17 +86,3 @@ int main( )
 	}
 }
  
-/*void print (int m [][100]) {
-	int x, y;
-	//int m [x][y];
-	cout << endl << "		  0 1 2 3 4 5 6 7 8 9" << endl;
-
-	for(int i=0; i<x; i++) {
-	cout << "		" <<i << " ";
-	for(int j=0; j<y; j++) {
-		cout << m [x][y] << " ";
-		
-	}
-	cout << endl;
-}
-}*/
