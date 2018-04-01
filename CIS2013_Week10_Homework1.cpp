@@ -28,7 +28,7 @@ int main( )
 	//m is now a y by x array. x - width, y - height
  
  
- // Ниже просто тесты - посотреть, что происходит:
+ // just testing m below// Ниже просто тесты - посотреть, что происходит:
  /*cout<< m << endl; // array m address - test
  cout<< *m << endl; // test - address of the 1st 
  cout << m[0]<< endl; // test - address of [i]
@@ -49,8 +49,8 @@ int main( )
 	cout << endl;
 	cout << mine << " mines are..."; 
 
-	int* mines = new int[mine*2];
-	int mx, my;
+	int* mines = new int[mine*2];// double, because we need 2 coordinates for each mine
+	int mx, my; // coordinates
 	
 	for (int n = 0; n < mine*2; n+=2)
 	{
@@ -58,19 +58,23 @@ int main( )
 		my = rand() % y;	
 
 		while (1) {
-			 int i; for (i = 0; i < n; i+=2) { 
+			 int i; 
 			 
-			 if (mines[i] == mx && mines[i+1] == my)//if mine already placed here just try randomize another time 
+			 for (i = 0; i < n; i+=2) { 
+			 
+			 //if mine already placed here -  randomize one more time
+			 if (mines[i] == mx && mines[i+1] == my) // coordinates go after each other in the array
 				
 				{ mx = rand() % x; 
 				  my = rand() % y; 
 				  break; 
 				} 
 			} 
-			if (i == n) //all clear - get out 
+			if (i == n) //all mines are planted - get out of the loop
 			break; 
 		} 
 		
+		// coordinates of mines go after each other in the array
 		 mines[n] = mx; 
 		 mines[n + 1] = my;
 		
@@ -90,11 +94,13 @@ int main( )
 	
 	
 	while (1) {
-		 unsigned int column = x+1, row = y+1; 
+		 unsigned int column = x+1, row = y+1; // larger value in order to enter the next while loop
+		 
+		 // the game is looped with while and condition that the user enters positive intgs:
 		 
 		 while (column >= x || row >= y) { 
 		 
-		 cout << "Hit position:"<<endl; 
+		 cout << "Let's play! Enter coordinates : "<<endl; 
 		 
 		 cout << "x ="; 
 		 cin >> column;
@@ -103,7 +109,9 @@ int main( )
 		 cin >> row;
 		 cout << endl; 
 		 }
+		 // unsigned = from 0 + positive intgs
 		  unsigned char gOver = 0; 
+		  
 		  for (int n = 0; n < mine * 2; n += 2) {
 			  
 			   if (mines[n] == column && mines[n + 1] == row) { 
@@ -147,7 +155,7 @@ int main( )
  void print(unsigned char** board, int x, int y)
 {
 
-	cout << '	';
+	cout << '\t';
 	for (int i = 0; i < x;i++)
 	{
 		cout << i << ' ';
@@ -155,7 +163,7 @@ int main( )
 	cout << '\n';
 	for (int i = 0; i < y; i++)
 	{
-		cout << i << '	';
+		cout << i << '\t';
 		for (int j = 0; j < x;j++)
 		{
 			cout << board[i][j] << ' ';
