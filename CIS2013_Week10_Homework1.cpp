@@ -119,6 +119,16 @@ int main( )
 					bOver = 1; 
 				} 
 			} 
+			
+			 if (bOver) 
+				 break; 
+			 else { 
+			 
+				m[row][column] = ' '; 
+				print(m, x, y); 
+				}
+
+	}				
 	
 	for (int i = 0; i < y; i++)
 		delete[] m[i];
