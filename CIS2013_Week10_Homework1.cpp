@@ -1,13 +1,9 @@
 #include <iostream>
 using namespace std;
 
-//typedef int* IntArrayPtr;
-
 typedef unsigned char* ByteArray;
 
 void print(unsigned char** board, int x, int y);
-
-//void print (int m [][100]);
 
 
 int main( )
@@ -50,13 +46,35 @@ int main( )
 	cout << "Enter amount of mines (not more than 10)for your field: " << endl;
 	cin >> mine;
 	cout << endl;
+	cout << "Planting mines..."; 
 
 	int* mines = new int[mine*2];
-	for (int i = 0; i < mine; i+=2)
+	int mx, my;
+	
+	for (int n = 0; n < mine*2; n+=2)
 	{
-		mines[i] = rand() % x;
-		mines[i+1] = rand() % y;		
+		mx = rand() % x;
+		my = rand() % y;	
+
+		while (1) {
+			 int i; for (i = 0; i < n; i+=2) { 
+			 
+			 if (mines[i] == mx && mines[i+1] == my)//if mine already placed here just try randomize another time 
+				
+				{ mx = rand() % x; 
+				  my = rand() % y; 
+				  break; 
+				} 
+			} 
+			if (i == n) //all clear - get out 
+			break; 
+		} 
+		
+		 mines[n] = mx; 
+		 mines[n + 1] = my;
+		
 	}
+	
 
 	// Попытка напечатать игровое поле:
 
