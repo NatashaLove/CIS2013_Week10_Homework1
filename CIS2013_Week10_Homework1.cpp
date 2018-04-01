@@ -89,7 +89,19 @@ int main( )
 	
 	
 	while (1) {
-		
+		 unsigned int column = x+1, row = y+1; 
+		 
+		 while (column >= x || row >= y) { 
+		 
+		 cout << "Hit position:"<<endl; 
+		 
+		 cout << "x ="; 
+		 cin >> column;
+		 cout << endl;
+		 cout << "y =";
+		 cin >> row;
+		 cout << endl; 
+		 }
 	
 	for (int i = 0; i < y; i++)
 		delete[] m[i];
