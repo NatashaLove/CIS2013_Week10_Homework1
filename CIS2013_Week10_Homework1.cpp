@@ -102,6 +102,23 @@ int main( )
 		 cin >> row;
 		 cout << endl; 
 		 }
+		  unsigned char bOver = 0; 
+		  for (int n = 0; n < mine * 2; n += 2) {
+			  
+			   if (mines[n] == column && mines[n + 1] == row) { 
+					
+					//show all mines
+					for (int k = 0; k < mine * 2; k += 2) { 
+					m[mines[k+1]][mines[k]] = 'M'; 
+					}
+					m[mines[n]][mines[n + 1]] = 'X';//mark badluck especially 
+					
+					print(m, x, y); 
+					
+					cout << "Game over!"; 
+					bOver = 1; 
+				} 
+			} 
 	
 	for (int i = 0; i < y; i++)
 		delete[] m[i];
