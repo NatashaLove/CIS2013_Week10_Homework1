@@ -5,13 +5,14 @@ using namespace std;
 
 typedef unsigned char* ByteArray;
 
-void print(unsigned char** board, int x, int y);
+void print(unsigned char** board, int x, int y); //  declaring a pointer to a pointer to unsigned char. 
+//Such an object can be used for a 2D array (an array of arrays).
 
 
 int main( )
  {
  int x, y;
-// int board [x][y];
+
  int mine=0;
  
 	cout << ' ' << endl;
@@ -23,7 +24,7 @@ int main( )
 	cin >> y;
 	cout<< endl;
 
-	ByteArray *m = new ByteArray[y];
+ ByteArray *m = new ByteArray[y];
 
 	for (int i = 0; i < y; i++)
 		m[i] = new unsigned char[x];
