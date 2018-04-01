@@ -12,6 +12,7 @@ int main( )
 // int board [x][y];
  int mine=0;
  
+	cout << '/t';
 	cout << "Enter the board size :\n";
 	cout<< "x =";
 	cin >> x;
