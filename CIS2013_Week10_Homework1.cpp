@@ -1,3 +1,5 @@
+// Minesweeper
+
 #include <iostream>
 using namespace std;
 
