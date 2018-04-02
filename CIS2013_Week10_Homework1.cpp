@@ -16,6 +16,8 @@ int main( )
  int mine=0;
  
 	cout << ' ' << endl;
+	cout << "    ********      Hello! Welcome to the MineSweeper!     ********      "<< endl;
+	cout << ' ' << endl;
 	cout << "Enter the board size :\n";
 	cout<< "x =";
 	cin >> x;
